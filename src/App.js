@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import mainBg from "./images/main_bg.png"; // Import the image
 import sec2bg from "./images/section2_bg.png"; // Import the image
-import img2 from "./images/img_2.png"; // Import the image
 import sec3 from "./images/sec3bg.png"; // Import the image
 import serv1 from "./images/service1.jpg"; // Import the image
 import { GrStatusGood } from "react-icons/gr";
@@ -73,6 +72,34 @@ function App() {
               Dan Lius Monsales
             </span>
           </a>
+          {/* Desktop menu (visible on medium screens and up) */}
+          <ul className="hidden md:flex space-x-8 text-white anton-regular text-xs font-bold">
+            <li>
+              <a href="/" className="hover:scale-105 transition-transform ">
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="/" className="hover:scale-105 transition-transform">
+                ABOUT
+              </a>
+            </li>
+            <li>
+              <a href="/" className="hover:scale-105 transition-transform">
+                SERVICES
+              </a>
+            </li>
+            <li>
+              <a href="/" className="hover:scale-105 transition-transform">
+                WORKS
+              </a>
+            </li>
+            <li>
+              <a href="/" className="hover:scale-105 transition-transform">
+                CONTACT
+              </a>
+            </li>
+          </ul>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             type="button"
@@ -89,7 +116,6 @@ function App() {
           </button>
         </div>
 
-        {/* Mobile menu */}
         {/* Mobile menu */}
         <div
           className={`absolute top-0 left-0 w-full h-screen bg-black bg-opacity-90 transition-transform duration-300 ease-in-out z-40 ${
