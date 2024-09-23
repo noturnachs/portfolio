@@ -1,3 +1,30 @@
+# robots.txt for Dan Lius Monsales - Web Developer
 # https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /wp-admin/
+Allow: /
+
+# Sitemap location for SEO (replace with the correct URL to your sitemap)
+Sitemap: https://danlius.com/sitemap.xml
+
+# Allow Googlebot to crawl everything
+User-agent: Googlebot
 Disallow:
+
+# Block bad bots (e.g., crawlers that harm SEO or use server resources unnecessarily)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
