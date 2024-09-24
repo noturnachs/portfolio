@@ -47,6 +47,7 @@ const EmailModal = ({ isOpen, onClose }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [countryCode, setCountryCode] = useState("+1");
   const [successMessageVisible, setSuccessMessageVisible] = useState(false);
+  const [isSending, setIsSending] = useState(false); // New state to track sending status
 
   useEffect(() => {
     if (!isOpen) {
@@ -66,6 +67,8 @@ const EmailModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSending(true); // Set sending state to true
+
     const message = `New hire request from: ${email}\nPhone: ${countryCode}${phoneNumber}\nMessage: ${body}`;
     const botToken = process.env.REACT_APP_BOT_TOKEN;
     const chatId = process.env.REACT_APP_CHAT_ID;
@@ -91,6 +94,8 @@ const EmailModal = ({ isOpen, onClose }) => {
       setCountryCode("+1");
     } catch (error) {
       console.error("Error sending message:", error);
+    } finally {
+      setIsSending(false); // Reset sending state
     }
   };
 
@@ -391,9 +396,12 @@ const EmailModal = ({ isOpen, onClose }) => {
               <div className="flex flex-row space-x-3">
                 <button
                   type="submit"
-                  className="bg-[#f0e8d5] text-black rounded-lg py-2 px-4 hover:bg-[#d3c7a3] transition duration-200 font-bold"
+                  className={`w-full p-2 rounded ${
+                    isSending ? "bg-gray-400" : "bg-[#f0e8d5]"
+                  } transition duration-200 font-bold`}
+                  disabled={isSending} // Disable the button if still sending
                 >
-                  Send Email
+                  {isSending ? "Sending..." : "Send Email"}
                 </button>
                 <button
                   type="button"
