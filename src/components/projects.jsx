@@ -3,6 +3,7 @@ import lImage from "../images/leeyosChat.png";
 import vImage from "../images/valoParty.png";
 import sImage from "../images/liuslive.png";
 import htt from "../images/ht.png";
+import tsp from "../images/tsp.png";
 
 const projects = [
   {
@@ -24,10 +25,16 @@ const projects = [
     image: sImage,
   },
   {
-    title: "HopeThreads - Client Website",
-    description: "Client website for HopeThreads.",
+    title: "HopeThreads",
+    description: "Client's website",
     link: "https://hopethreadstest.onrender.com/",
     image: htt,
+  },
+  {
+    title: "TornadoSoundPerfection",
+    description: "Client's website",
+    link: "https://tornadosoundperfection.com/",
+    image: tsp,
   },
   // Add more projects as needed
 ];
@@ -74,9 +81,9 @@ const ProjectsSection = () => {
       <div
         className={`grid grid-cols-1 gap-4 transition-all duration-500 ease-in-out ${
           isExpanded
-            ? "max-h-[1000px] opacity-100 p-5"
+            ? "opacity-100 p-5" // Removed max-h and overflow
             : "max-h-0 opacity-0 p-0"
-        } overflow-hidden`}
+        }`}
       >
         {projects.map((project, index) => (
           <div
