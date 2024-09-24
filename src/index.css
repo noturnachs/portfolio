@@ -55,3 +55,25 @@
     transform: perspective(400px) rotateX(0deg);
   }
 }
+
+.grainy {
+  position: relative;
+}
+
+.grainy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png"); /* Grainy texture image */
+  opacity: 0.1; /* Adjust the opacity for subtle effect */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grainy img {
+  position: relative;
+  z-index: 0;
+}
