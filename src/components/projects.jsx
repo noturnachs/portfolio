@@ -2,6 +2,7 @@ import { useState } from "react";
 import lImage from "../images/leeyosChat.png";
 import vImage from "../images/valoParty.png";
 import sImage from "../images/liuslive.png";
+import htt from "../images/ht.png";
 
 const projects = [
   {
@@ -21,6 +22,12 @@ const projects = [
     description: "Shorten your long urls.",
     link: "https://lius.live/",
     image: sImage,
+  },
+  {
+    title: "HopeThreads - Client Website",
+    description: "Client website for HopeThreads.",
+    link: "https://hopethreadstest.onrender.com/",
+    image: htt,
   },
   // Add more projects as needed
 ];
