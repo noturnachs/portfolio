@@ -7,7 +7,6 @@ import ProjectsSection from "./components/projects";
 import ContactMeSection from "./components/contact";
 import SocialsSection from "./components/socials";
 import EmailModal from "./components/EmailModal";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const textValues = ["DEVELOP", "LEARN", "GROW", "CODE", "MAINTAIN", "UPDATE"];
 
@@ -105,7 +104,6 @@ function App() {
           <div className="text-[#f0e8d5] mt-5 font-semibold italic mb-10">
             Bringing your vision to life with code and creativity.
           </div>
-
           {/* About Me Section */}
           <div className="flex flex-col lg:flex-row items-start space-y-4 lg:space-y-0 lg:space-x-20 justify-center">
             <div className="flex flex-col items-start space-y-4">
@@ -141,27 +139,17 @@ function App() {
               <SocialsSection />
             </div>
           </div>
-
-          <div className="max-w-md items-center flex justify-center space-x-4 p-4 mt-5">
-            <a
-              href="https://www.facebook.com/suilnad"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-200 hover:text-gray-400 transition-colors"
-            >
-              <FaFacebookF size={20} />
-            </a>
-            <a
-              href="https://www.instagram.com/noturnahs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-200 hover:text-gray-400 transition-colors"
-            >
-              <FaInstagram size={20} />
-            </a>
-          </div>
         </div>
       </main>
+      {/* Footer */}
+      <footer className="bg-[#2c352f] text-[#f0e8d5] p-3 ">
+        <div className="max-w-screen-xl mx-auto text-center">
+          <p className="text-sm font-semibold">
+            &copy; {new Date().getFullYear()} Dan Lius Monsales. All rights
+            reserved.
+          </p>
+        </div>
+      </footer>
 
       {/* Email Modal */}
       <CSSTransition
