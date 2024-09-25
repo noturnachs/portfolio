@@ -79,10 +79,8 @@ const ProjectsSection = () => {
 
       {/* Projects Section */}
       <div
-        className={`grid grid-cols-1 gap-4 transition-all duration-500 ease-in-out ${
-          isExpanded
-            ? "opacity-100 p-5" // Removed max-h and overflow
-            : "max-h-0 opacity-0 p-0"
+        className={`grid grid-cols-1 gap-4 transition-all duration-500 ease-in-out overflow-hidden ${
+          isExpanded ? "h-full opacity-100 p-5" : "max-h-0 opacity-0 p-0"
         }`}
       >
         {projects.map((project, index) => (
