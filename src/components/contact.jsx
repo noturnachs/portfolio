@@ -90,7 +90,7 @@ const ContactMeSection = () => {
           <FaTelegramPlane className="text-[#f0e8d5] h-5 w-5" />
           <p>
             <a
-              href="https://t.me/leeyosChat"
+              href="https://t.me/dan_lius"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#f0e8d5] hover:text-[#b0cfc4] font-semibold"
