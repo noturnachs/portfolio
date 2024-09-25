@@ -5,6 +5,7 @@ import selfImg from "./images/me.jpg";
 import SkillsSection from "./components/skills";
 import ProjectsSection from "./components/projects";
 import ContactMeSection from "./components/contact";
+import SocialsSection from "./components/socials";
 import EmailModal from "./components/EmailModal";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
@@ -137,6 +138,7 @@ function App() {
               <SkillsSection />
               <ProjectsSection />
               <ContactMeSection />
+              <SocialsSection />
             </div>
           </div>
 
