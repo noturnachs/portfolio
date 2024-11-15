@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CSSTransition } from "react-transition-group"; // Import CSSTransition
+import { CSSTransition } from "react-transition-group";
 import mainBg from "./images/main_bg.png";
 import selfImg from "./images/me.jpg";
 import SkillsSection from "./components/skills";
@@ -16,7 +16,6 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Handle scrolling effects
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -25,7 +24,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Text flipping effect
   useEffect(() => {
     const interval = setInterval(() => {
       setIsFlipping(true);
@@ -60,7 +58,7 @@ function App() {
           <ul className="hidden md:flex space-x-8 text-[#f0e8d5] anton-regular text-xs font-bold">
             <li>
               <button
-                onClick={() => setIsModalOpen(true)} // Open modal
+                onClick={() => setIsModalOpen(true)}
                 className="inline-block bg-[#4f6150] text-[#f0e8d5] font-bold text-sm px-4 py-2 rounded transition-transform duration-300 ease-in-out hover:bg-[#2c352f] hover:scale-105"
               >
                 Hire me
@@ -71,7 +69,7 @@ function App() {
           {/* Mobile Hire Me Button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsModalOpen(true)} // Open modal
+              onClick={() => setIsModalOpen(true)}
               className="inline-block bg-[#384739] text-[#f0e8d5] font-bold text-sm px-4 py-2 rounded transition-transform duration-300 ease-in-out hover:bg-[#2c352f] hover:scale-105"
             >
               Hire me
@@ -82,7 +80,7 @@ function App() {
 
       {/* Main Content */}
       <main
-        className="min-h-screen flex flex-col items-center justify-start relative overflow-x-hidden"
+        className="min-h-screen flex flex-col items-center justify-start relative overflow-x-hidden pb-20" // Add padding bottom
         style={{
           backgroundImage: `url(${mainBg})`,
           backgroundSize: "cover",
@@ -90,7 +88,7 @@ function App() {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="text-center z-10 w-auto mx-auto p-4 mt-20 max-w-md">
+        <div className="text-center z-10 w-full px-4 mt-20 max-w-7xl mx-auto">
           <div className="text-2xl relative text-[#ddd] text-[14px] oswald-font mb-5">
             WEB DEVELOPER
           </div>
@@ -105,9 +103,9 @@ function App() {
             Bringing your vision to life with code and creativity.
           </div>
           {/* About Me Section */}
-          <div className="flex flex-col lg:flex-row items-start space-y-4 lg:space-y-0 lg:space-x-20 justify-center">
-            <div className="flex flex-col items-start space-y-4">
-              <div className="relative w-96 h-96 rounded-lg overflow-hidden shadow-lg">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-20 justify-center">
+            <div className="flex flex-col items-center lg:items-start space-y-4 w-full max-w-sm">
+              <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#e7dabb] opacity-25"></div>
                 <img
                   src={selfImg}
@@ -132,7 +130,7 @@ function App() {
               </div>
             </div>
 
-            <div className="flex flex-col space-y-4 w-full">
+            <div className="flex flex-col space-y-4 w-full max-w-md">
               <SkillsSection />
               <ProjectsSection />
               <ContactMeSection />
@@ -142,7 +140,7 @@ function App() {
         </div>
       </main>
       {/* Footer */}
-      <footer className="bg-[#2c352f] text-[#f0e8d5] p-3 ">
+      <footer className="bg-[#2c352f] text-[#f0e8d5] p-3  ">
         <div className="max-w-screen-xl mx-auto text-center">
           <p className="text-sm font-semibold">
             &copy; {new Date().getFullYear()} Dan Lius Monsales. All rights
