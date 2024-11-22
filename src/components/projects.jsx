@@ -4,6 +4,7 @@ import vImage from "../images/valoParty.png";
 import sImage from "../images/liuslive.png";
 import htt from "../images/ht.png";
 import tsp from "../images/tsp.png";
+import dorm from "../images/dorm.png";
 
 const projects = [
   {
@@ -11,6 +12,12 @@ const projects = [
     description: "Chat with strangers all over the world.",
     link: "https://leeyos.com/",
     image: lImage,
+  },
+  {
+    title: "BookIt",
+    description: "Book dorms in USC",
+    link: "https://dorm-bookingfinal.onrender.com/",
+    image: dorm, // Update with the actual image path
   },
   {
     title: "ValoParty",
@@ -36,6 +43,7 @@ const projects = [
     link: "https://tornadosoundperfection.com/",
     image: tsp,
   },
+
   // Add more projects as needed
 ];
 
