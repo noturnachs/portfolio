@@ -9,6 +9,13 @@ import moneyup from "../images/moneyup.png";
 
 const projects = [
   {
+    title: "MoneyUp",
+    description:
+      "Take Control of Your Financial Future - Personal finance management tool",
+    link: "https://moneyup.me/",
+    image: moneyup,
+  },
+  {
     title: "LeeyosChat",
     description: "Chat with strangers all over the world.",
     link: "https://leeyos.com/",
@@ -43,13 +50,6 @@ const projects = [
     description: "Client's website",
     link: "https://tornadosoundperfection.com/",
     image: tsp,
-  },
-  {
-    title: "MoneyUp",
-    description:
-      "Take Control of Your Financial Future - Personal finance management tool",
-    link: "https://moneyup.me/",
-    image: moneyup,
   },
 
   // Add more projects as needed
