@@ -5,6 +5,7 @@ import sImage from "../images/liuslive.png";
 import htt from "../images/ht.png";
 import tsp from "../images/tsp.png";
 import dorm from "../images/dorm.png";
+import moneyup from "../images/moneyup.png";
 
 const projects = [
   {
@@ -42,6 +43,13 @@ const projects = [
     description: "Client's website",
     link: "https://tornadosoundperfection.com/",
     image: tsp,
+  },
+  {
+    title: "MoneyUp",
+    description:
+      "Take Control of Your Financial Future - Personal finance management tool",
+    link: "https://moneyup.me/",
+    image: moneyup,
   },
 
   // Add more projects as needed
