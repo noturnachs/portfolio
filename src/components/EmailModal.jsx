@@ -2,40 +2,39 @@ import React, { useEffect, useState } from "react";
 
 const SuccessModal = ({ onClose }) => (
   <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-    <div className="absolute inset-0 bg-black opacity-50"></div>
-    <div className="bg-[#384739] rounded-lg shadow-lg p-6 z-10 max-w-md w-full flex flex-col items-center justify-center">
-      <CheckmarkAnimation />
-      <h2 className="text-md font-extralight mb-4 text-[#f0e8d5]">
-        Message sent! Expect a reply from Dan soon.
-      </h2>
-      <h2 className="text-md font-bold mb-4 text-[#f0e8d5]">
-        Have a nice day!
-      </h2>
-      <button
-        onClick={onClose}
-        className="bg-[#f0e8d5] text-black rounded-lg py-1 px-4 hover:bg-[#d3c7a3] transition duration-200 font-bold mt-4"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-);
-
-const CheckmarkAnimation = () => (
-  <div className="main-container">
-    <div className="check-container">
-      <div className="check-background">
-        <svg viewBox="0 0 65 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div
+      className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 z-10 max-w-md w-full 
+      flex flex-col items-center justify-center border border-white/10"
+    >
+      <div className="mb-6">
+        <svg
+          className="w-16 h-16 text-indigo-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <path
-            d="M7 25L27.3077 44L58.5 7"
-            stroke="white"
-            strokeWidth="13"
             strokeLinecap="round"
             strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 13l4 4L19 7"
           />
         </svg>
       </div>
-      <div className="check-shadow"></div>
+      <h2 className="text-xl text-white mb-2">Message Sent!</h2>
+      <p className="text-gray-300 text-center mb-6">
+        Expect a reply from Dan soon. Have a great day!
+      </p>
+      <button
+        onClick={onClose}
+        className="px-6 py-2 bg-indigo-600 text-white rounded-lg
+          hover:bg-indigo-700 transition-all duration-300
+          transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-600/20
+          focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      >
+        Close
+      </button>
     </div>
   </div>
 );
@@ -51,9 +50,7 @@ const EmailModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (!isOpen) {
       setClosing(true);
-      const timer = setTimeout(() => {
-        setClosing(false);
-      }, 300);
+      const timer = setTimeout(() => setClosing(false), 300);
       return () => clearTimeout(timer);
     } else {
       setEmail("");
@@ -71,14 +68,11 @@ const EmailModal = ({ isOpen, onClose }) => {
     const botToken = process.env.REACT_APP_BOT_TOKEN;
     const chatId = process.env.REACT_APP_CHAT_ID;
 
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
+    console.log(botToken, chatId);
     try {
-      await fetch(url, {
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: chatId,
           text: message,
@@ -105,68 +99,80 @@ const EmailModal = ({ isOpen, onClose }) => {
       ) : (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
           <div
-            className="absolute inset-0 bg-black opacity-50"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={onClose}
           ></div>
           <div
-            className={`bg-[#384739] rounded-lg shadow-lg p-6 z-10 max-w-md w-full modal ${
-              isOpen ? "modal-open" : closing ? "modal-close" : ""
-            }`}
+            className={`bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 z-10 
+              max-w-md w-full border border-white/10 transform transition-all duration-300
+              ${isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
           >
-            <h2 className="text-xl font-semibold mb-4 text-[#f0e8d5]">
-              Hire me now!
+            <h2 className="text-2xl font-semibold mb-6 text-white">
+              Let's Work Together
             </h2>
 
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
                 <input
                   type="email"
-                  id="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="border rounded-lg p-2 w-full bg-[#f0e8d5] text-black"
-                  placeholder="client@email.com"
+                  className="w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 
+                    text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500
+                    transition-colors duration-300"
+                  placeholder="Your email"
                 />
               </div>
-              <div className="mb-4">
+
+              <div>
                 <input
                   type="tel"
-                  id="phone-number"
                   required
                   value={phoneNumber}
-                  onChange={
-                    (e) =>
-                      setPhoneNumber(e.target.value.replace(/[^0-9+]/g, "")) // Allow only numbers and '+'
+                  onChange={(e) =>
+                    setPhoneNumber(e.target.value.replace(/[^0-9+]/g, ""))
                   }
-                  className="border rounded-lg p-2 w-full bg-[#f0e8d5] text-black"
-                  placeholder="Include country code (e.g., +1 9876543210)"
-                  maxLength={15} // Set maximum length to 15 characters
+                  className="w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 
+                    text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500
+                    transition-colors duration-300"
+                  placeholder="Phone number (with country code)"
+                  maxLength={15}
                 />
               </div>
-              <div className="mb-4">
+
+              <div>
                 <textarea
-                  id="body"
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
-                  className="border rounded-lg p-2 w-full bg-[#f0e8d5] text-black"
+                  className="w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 
+                    text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500
+                    transition-colors duration-300 min-h-[120px] resize-none"
+                  placeholder="Your message"
                   rows="4"
                 />
               </div>
-              <div className="flex flex-row space-x-3">
+
+              <div className="flex space-x-4 pt-2">
                 <button
                   type="submit"
-                  className={`w-full p-2 rounded ${
-                    isSending ? "bg-gray-400" : "bg-[#f0e8d5]"
-                  } transition duration-200 font-bold`}
                   disabled={isSending}
+                  className={`flex-1 px-6 py-3 rounded-lg font-medium transition-all duration-300
+                    transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                    focus:ring-offset-[#121212] ${
+                      isSending
+                        ? "bg-gray-600 cursor-not-allowed"
+                        : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/20"
+                    }`}
                 >
-                  {isSending ? "Sending..." : "Send Email"}
+                  {isSending ? "Sending..." : "Send Message"}
                 </button>
                 <button
                   type="button"
-                  onClick={onClose} // Call the onClose function
-                  className="bg-[#f0e8d5] text-black rounded-lg py-2 px-4 hover:bg-[#d3c7a3] transition duration-200 font-bold"
+                  onClick={onClose}
+                  className="px-6 py-3 rounded-lg font-medium bg-white/5 hover:bg-white/10 
+                    transition-all duration-300 transform hover:scale-105
+                    focus:outline-none focus:ring-2 focus:ring-white/20"
                 >
                   Cancel
                 </button>

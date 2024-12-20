@@ -58,27 +58,20 @@ const projects = [
 const ProjectsSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
     <div
-      className="w-full text-[#f0e8d5] bg-[#3a4a3b] rounded-lg bg-opacity-95 text-start cursor-pointer"
-      onClick={toggleExpand}
+      className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+      onClick={() => setIsExpanded(!isExpanded)}
     >
-      <div className="flex justify-between items-center p-3">
-        <div className="anton-regular text-xl">Projects</div>
-
-        {/* Arrow */}
+      <div className="flex justify-between items-center">
+        <h2 className="text-xl text-white font-semibold">Projects</h2>
         <div
           className={`transform transition-transform duration-300 ${
             isExpanded ? "rotate-180" : ""
           }`}
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="w-5 h-5 text-gray-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -86,36 +79,48 @@ const ProjectsSection = () => {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth={2}
               d="M19 9l-7 7-7-7"
             />
           </svg>
         </div>
       </div>
 
-      {/* Projects Section */}
       <div
-        className={`grid grid-cols-1 gap-4 transition-all duration-500 ease-in-out overflow-hidden ${
-          isExpanded ? "h-full opacity-100 p-5" : "max-h-0 opacity-0 p-0"
-        }`}
+        className={`transition-all duration-500 ease-in-out ${
+          isExpanded ? "max-h-[2000px] opacity-100 mt-4" : "max-h-0 opacity-0"
+        } overflow-hidden`}
       >
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-[#2a3a2b] rounded-lg p-4 transition-transform transform hover:scale-105 cursor-pointer"
-            onClick={() => window.open(project.link, "_blank")}
-          >
-            <h3 className="text-lg font-semibold">{project.title}</h3>
-            <p className="text-sm mt-1">{project.description}</p>
+        <div className="grid gap-4">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(project.link, "_blank");
+              }}
+              className="group relative bg-black/20 rounded-xl overflow-hidden hover:bg-black/40 transition-all duration-300"
+            >
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-white">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-gray-400 mt-1">
+                  {project.description}
+                </p>
+              </div>
 
-            {/* Snippet Image Section */}
-            <img
-              src={project.image}
-              alt={`${project.title} screenshot`}
-              className="mt-2 w-full h-auto rounded"
-            />
-          </div>
-        ))}
+              <div className="relative aspect-video overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
