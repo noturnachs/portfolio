@@ -26,11 +26,11 @@ const Sections = () => {
           <div className="md:w-1/2 p-4 text-center md:text-left">
             <h2 className="text-3xl font-bold mb-4 text-white">ABOUT ME</h2>
             <p className="text-gray-300 mb-6 text-sm md:text-base">
-              I'm a Web Developer who builds engaging websites. I focus on
-              delivering projects quickly and efficiently, ensuring everything
-              works smoothly. I aim to create strong connections with clients
-              and understand their needs, providing tailored solutions that
-              really stand out.
+              I’m a Web Developer who loves making websites that are not just
+              functional but also creative. I’m all about working efficiently to
+              deliver projects quickly without compromising on quality. My goal
+              is to truly connect with my clients, understand their vision, and
+              bring it to life with unique & creative solutions.
             </p>
             <button
               onClick={() => setIsProjectsVisible(!isProjectsVisible)}

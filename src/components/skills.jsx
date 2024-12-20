@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SkillBar from "./SkillBar";
 import {
   ReactOriginal,
   PhpOriginal,
@@ -11,16 +12,16 @@ const SkillsSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const skills = [
-    { Icon: ReactOriginal, name: "React" },
-    { Icon: PhpOriginal, name: "PHP" },
-    { Icon: Html5Original, name: "HTML5" },
-    { Icon: NodejsOriginalWordmark, name: "Node.js" },
-    { Icon: PythonOriginal, name: "Python" },
+    { Icon: ReactOriginal, name: "React", level: 90 },
+    { Icon: PhpOriginal, name: "PHP", level: 85 },
+    { Icon: Html5Original, name: "HTML5", level: 95 },
+    { Icon: NodejsOriginalWordmark, name: "Node.js", level: 80 },
+    { Icon: PythonOriginal, name: "Python", level: 75 },
   ];
 
   return (
     <div
-      className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+      className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer"
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <div className="flex justify-between items-center">
@@ -48,10 +49,11 @@ const SkillsSection = () => {
 
       <div
         className={`transition-all duration-500 ease-in-out ${
-          isExpanded ? "max-h-[300px] opacity-100 mt-4" : "max-h-0 opacity-0"
+          isExpanded ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
         } overflow-hidden`}
       >
-        <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 items-center justify-items-center">
+        {/* Icons Grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 items-center justify-items-center mb-8">
           {skills.map(({ Icon, name }, index) => (
             <div
               key={index}
@@ -68,6 +70,13 @@ const SkillsSection = () => {
                 {name}
               </span>
             </div>
+          ))}
+        </div>
+
+        {/* Skill Bars */}
+        <div className="space-y-4">
+          {skills.map((skill) => (
+            <SkillBar key={skill.name} skill={skill.name} level={skill.level} />
           ))}
         </div>
       </div>
