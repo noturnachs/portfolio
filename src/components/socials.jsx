@@ -52,7 +52,7 @@ const SocialsSection = () => {
           {
             icon: FaInstagram,
             label: "Instagram",
-            href: "https://www.instagram.com/noturnahs/",
+            href: "https://www.instagram.com/danliius/",
           },
           {
             icon: FaLinkedin,
