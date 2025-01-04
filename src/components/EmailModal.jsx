@@ -49,7 +49,7 @@ const EmailModal = ({ isOpen, onClose }) => {
   const [isSending, setIsSending] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [subject, setSubject] = useState("");
-  const [budget, setBudget] = useState(500);
+  const [budget, setBudget] = useState(8000);
   const [timeline, setTimeline] = useState("");
   const [isUnsureBudget, setIsUnsureBudget] = useState(false);
 
