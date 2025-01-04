@@ -41,7 +41,14 @@ const Sections = () => {
               {
                 Icon: RiFileEditFill,
                 title: "Free Updates",
-                description: "Get free updates for your website.",
+                description: (
+                  <>
+                    Get free updates for your website.
+                    <span className="text-indigo-400 text-xs">
+                      &nbsp;Only applies to minor changes.
+                    </span>{" "}
+                  </>
+                ),
               },
               {
                 Icon: BiSupport,
