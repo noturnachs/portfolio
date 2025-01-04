@@ -253,24 +253,70 @@ const Sections = () => {
               {
                 step: "1",
                 title: "Discovery",
-                description:
-                  "Understanding your needs and project requirements",
+                description: (
+                  <>
+                    First, we discuss your{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      project requirements
+                    </span>{" "}
+                    and{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      business goals
+                    </span>
+                  </>
+                ),
               },
               {
                 step: "2",
                 title: "Planning",
-                description:
-                  "Creating a detailed project roadmap and design mockups",
+                description: (
+                  <>
+                    Creating{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      detailed mockups
+                    </span>{" "}
+                    and a{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      development timeline
+                    </span>
+                  </>
+                ),
               },
               {
                 step: "3",
                 title: "Development",
-                description: "Building your website with regular updates",
+                description: (
+                  <>
+                    Building with{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      regular updates
+                    </span>{" "}
+                    and{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      progress reports
+                    </span>
+                  </>
+                ),
               },
               {
                 step: "4",
                 title: "Launch",
-                description: "Testing, deployment, and ongoing support",
+                description: (
+                  <>
+                    Final{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      testing
+                    </span>
+                    ,{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      deployment
+                    </span>
+                    , and{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      ongoing support
+                    </span>
+                  </>
+                ),
               },
             ].map((step, index) => (
               <div
@@ -298,22 +344,61 @@ const Sections = () => {
             {[
               {
                 question: "How long does it take to build a website?",
-                answer:
-                  "Typically 2-4 weeks, depending on the project complexity and requirements.",
+                answer: (
+                  <>
+                    Typically{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      2-4 weeks
+                    </span>
+                    , depending on project complexity.{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      Regular updates
+                    </span>{" "}
+                    are provided throughout development.
+                  </>
+                ),
               },
               {
                 question: "Do you provide website maintenance?",
-                answer:
-                  "Yes, I offer ongoing maintenance and support to keep your website up-to-date.",
+                answer: (
+                  <>
+                    Yes! I offer{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      ongoing maintenance
+                    </span>{" "}
+                    to keep your website running smoothly.
+                  </>
+                ),
               },
               {
                 question: "What is your payment structure?",
-                answer: "Will depend on the project size and requirements.",
+                answer: (
+                  <>
+                    <span className="text-indigo-400 font-semibold">
+                      Will depend on the project size and requirements.
+                    </span>{" "}
+                  </>
+                ),
               },
               {
                 question: "Can you help with existing websites?",
-                answer:
-                  "Yes, I can help modify, update, or redesign existing websites.",
+                answer: (
+                  <>
+                    Yes! I can help with{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      modifications
+                    </span>
+                    ,{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      updates
+                    </span>
+                    , or complete{" "}
+                    <span className="text-indigo-400 font-semibold">
+                      redesigns
+                    </span>{" "}
+                    of existing websites.
+                  </>
+                ),
               },
             ].map((faq, index) => (
               <div
