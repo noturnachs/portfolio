@@ -5,37 +5,37 @@ const terms = [
   {
     term: "Website",
     definition:
-      "A collection of web pages and related content that is identified by a common domain name and published on at least one web server. Think of it as your digital storefront or online presence that's accessible to anyone with an internet connection.",
+      "Your business's home on the internet where customers can find information about you, your services, and how to contact you. Just like a physical store, but online!",
   },
   {
     term: "Web Hosting",
     definition:
-      "A service that allows your website to be accessible on the internet. It's like renting space on a powerful computer (server) that stores your website files and makes them available 24/7 to visitors.",
+      "Think of it as renting a space on the internet where your website lives. Just like how a shop needs a physical location, your website needs a place to 'live' online.",
   },
   {
     term: "Domain Name",
     definition:
-      "Your website's address on the internet (like www.yourcompany.com). It's similar to your physical business address, but for the online world.",
+      "Your website's address (like www.yourcompany.com) that people type to find you online. It's like your business's street address, but for the internet.",
   },
   {
     term: "Responsive Design",
     definition:
-      "A design approach that makes your website look and work well on all devices - from desktop computers to mobile phones and tablets. It automatically adjusts to different screen sizes.",
+      "Makes your website look good on all devices - phones, tablets, and computers. Your site automatically adjusts to fit any screen size, so it's always easy to read and use.",
   },
   {
     term: "SEO",
     definition:
-      "Search Engine Optimization - practices that help your website appear higher in search results on Google and other search engines, making it easier for potential customers to find you.",
+      "Helps people find your website when they search on Google. It's like making sure your business shows up in the phone book - but for the internet age!",
   },
   {
     term: "SSL Certificate",
     definition:
-      "A security measure that encrypts data between your website and its visitors, showing as a padlock icon in the browser. It's essential for protecting sensitive information and building trust.",
+      "The padlock symbol you see in your browser that keeps your website secure. It protects your visitors' information (like passwords and credit cards) - think of it as a security guard for your website.",
   },
   {
     term: "CMS",
     definition:
-      "Content Management System - a tool that allows you to easily update your website's content without technical knowledge. Think of it as a user-friendly control panel for your website.",
+      "A simple tool that lets you update your website's text and pictures yourself - no computer expert needed! It's like having an easy-to-use remote control for your website.",
   },
 ];
 
