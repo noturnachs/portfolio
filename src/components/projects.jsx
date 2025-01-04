@@ -61,7 +61,7 @@ const ProjectsSection = () => {
   return (
     <div
       className={`bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer ${
-        isExpanded ? "h-[400px]" : "h-[80px]"
+        isExpanded ? "h-[410px]" : "h-[80px]"
       } overflow-hidden`}
       onClick={() => setIsExpanded(!isExpanded)}
     >

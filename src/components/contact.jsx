@@ -79,7 +79,7 @@ const ContactMeSection = () => {
             href={info.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-3 text-gray-300 hover:text-indigo-400 transition-colors group"
+            className="flex items-center space-x-3 text-gray-300 hover:text-indigo-400 transition-colors group mb-4"
           >
             <info.icon className="w-5 h-5" />
             <span className="font-medium">{info.label}</span>

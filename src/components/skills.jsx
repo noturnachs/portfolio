@@ -22,7 +22,7 @@ const SkillsSection = () => {
   return (
     <div
       className={`bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer ${
-        isExpanded ? "h-[400px]" : "h-[80px]"
+        isExpanded ? "h-[750px] sm:h-[500px]" : "h-[80px]"
       } overflow-hidden`}
       onClick={() => setIsExpanded(!isExpanded)}
     >
@@ -51,15 +51,17 @@ const SkillsSection = () => {
 
       <div
         className={`transition-all duration-500 ease-in-out ${
-          isExpanded ? "max-h-[320px] opacity-100 mt-6" : "max-h-0 opacity-0"
-        } overflow-auto custom-scrollbar`}
+          isExpanded
+            ? "max-h-[520px] sm:max-h-[420px] opacity-100 mt-6"
+            : "max-h-0 opacity-0"
+        }`}
       >
         {/* Icons Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 items-center justify-items-center mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-8 items-center justify-items-center mb-12">
           {skills.map(({ Icon, name }, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center space-y-2"
+              className="group flex flex-col items-center space-y-4"
             >
               <div className="relative">
                 <Icon
@@ -76,7 +78,7 @@ const SkillsSection = () => {
         </div>
 
         {/* Skill Bars */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           {skills.map((skill) => (
             <SkillBar key={skill.name} skill={skill.name} level={skill.level} />
           ))}

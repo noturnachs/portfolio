@@ -16,6 +16,17 @@ function App() {
   const [isFlipping, setIsFlipping] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hireButtonText, setHireButtonText] = useState("Hire me");
+  const [isTextChanging, setIsTextChanging] = useState(false);
+
+  const buttonTexts = [
+    "Hire me",
+    "Get a quote",
+    "Let's talk",
+    "Work with me",
+    "Start project",
+    "Get in touch",
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +47,20 @@ function App() {
         setIsFlipping(false);
       }, 300);
     }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      setIsTextChanging(true);
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % buttonTexts.length;
+        setHireButtonText(buttonTexts[currentIndex]);
+        setIsTextChanging(false);
+      }, 300);
+    }, 2000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -64,9 +89,17 @@ function App() {
                 hover:bg-indigo-700 transition-all duration-300 
                 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-600/20
                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 
-                focus:ring-offset-[#121212] font-bold text-sm"
+                focus:ring-offset-[#121212] font-bold text-sm min-w-[120px] overflow-hidden"
             >
-              Hire me
+              <span
+                className={`inline-block transition-all duration-600 ${
+                  isTextChanging
+                    ? "opacity-0 transform -translate-y-4"
+                    : "opacity-100 transform translate-y-0"
+                }`}
+              >
+                {hireButtonText}
+              </span>
             </button>
           </div>
 
@@ -78,9 +111,17 @@ function App() {
                 hover:bg-indigo-700 transition-all duration-300 
                 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-600/20
                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 
-                focus:ring-offset-[#121212]"
+                focus:ring-offset-[#121212] min-w-[120px] overflow-hidden"
             >
-              Hire me
+              <span
+                className={`inline-block transition-all duration-600 ${
+                  isTextChanging
+                    ? "opacity-0 transform -translate-y-4"
+                    : "opacity-100 transform translate-y-0"
+                }`}
+              >
+                {hireButtonText}
+              </span>
             </button>
           </div>
         </div>
