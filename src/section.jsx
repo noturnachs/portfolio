@@ -1,24 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { RiComputerLine, RiFileEditFill } from "react-icons/ri";
 import { IoPhoneLandscapeOutline } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
 import { LiaMoneyBillAlt } from "react-icons/lia";
 import { GrStatusGood } from "react-icons/gr";
-import { projects } from "./components/projList";
 import Glossary from "./components/Glossary";
 
 const Sections = () => {
-  const [currentProject, setCurrentProject] = useState(0);
-  const [isProjectsVisible, setIsProjectsVisible] = useState(false);
-
-  const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
   return (
     <>
       {/* Tech Terms Section */}
@@ -27,7 +15,6 @@ const Sections = () => {
           <Glossary />
         </div>
       </section>
-
       {/* Services Section */}
       <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
         <div className="max-w-7xl w-full mx-auto p-4 relative z-10">
@@ -93,7 +80,6 @@ const Sections = () => {
           </div>
         </div>
       </section>
-
       {/* Render.com Hosting Section */}
       <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
         <div className="max-w-7xl w-full mx-auto p-4 relative z-10">
@@ -170,7 +156,6 @@ const Sections = () => {
           </div>
         </div>
       </section>
-
       {/* Custom Hosting Solutions Section */}
       <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
         <div className="max-w-7xl w-full mx-auto p-4 relative z-10">
@@ -255,6 +240,92 @@ const Sections = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-12 bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+        <div className="max-w-7xl mx-auto p-4">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+            HOW I WORK
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              {
+                step: "1",
+                title: "Discovery",
+                description:
+                  "Understanding your needs and project requirements",
+              },
+              {
+                step: "2",
+                title: "Planning",
+                description:
+                  "Creating a detailed project roadmap and design mockups",
+              },
+              {
+                step: "3",
+                title: "Development",
+                description: "Building your website with regular updates",
+              },
+              {
+                step: "4",
+                title: "Launch",
+                description: "Testing, deployment, and ongoing support",
+              },
+            ].map((step, index) => (
+              <div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="text-4xl text-indigo-400 font-bold mb-4">
+                  {step.step}
+                </div>
+                <h3 className="text-xl text-white font-semibold mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-gray-300">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-12 bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+        <div className="max-w-7xl mx-auto p-4">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                question: "How long does it take to build a website?",
+                answer:
+                  "Typically 2-4 weeks, depending on the project complexity and requirements.",
+              },
+              {
+                question: "Do you provide website maintenance?",
+                answer:
+                  "Yes, I offer ongoing maintenance and support to keep your website up-to-date.",
+              },
+              {
+                question: "What is your payment structure?",
+                answer: "Will depend on the project size and requirements.",
+              },
+              {
+                question: "Can you help with existing websites?",
+                answer:
+                  "Yes, I can help modify, update, or redesign existing websites.",
+              },
+            ].map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+              >
+                <h3 className="text-xl text-white font-semibold mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-300">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
