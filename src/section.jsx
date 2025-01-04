@@ -93,6 +93,171 @@ const Sections = () => {
           </div>
         </div>
       </section>
+
+      {/* Render.com Hosting Section */}
+      <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+        <div className="max-w-7xl w-full mx-auto p-4 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              WEBSITE HOSTING
+            </h2>
+            <p className="text-gray-300">
+              Your website will be hosted on Render.com
+            </p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Left side - About Render */}
+              <div className="space-y-6">
+                <h3 className="text-2xl font-semibold text-white">
+                  Why Render?
+                </h3>
+                <div className="space-y-4 text-gray-300">
+                  <p>
+                    Render is a modern cloud platform that automatically builds
+                    and deploys your websites. It offers:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2">
+                    <li>Automatic HTTPS/SSL security</li>
+                    <li>Global CDN for fast loading</li>
+                    <li>99.9% uptime guarantee</li>
+                    <li>Automatic scaling</li>
+                    <li>DDoS protection</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Right side - Pricing */}
+              <div className="space-y-6">
+                <h3 className="text-2xl font-semibold text-white">
+                  Hosting Plans
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-black/30 rounded-xl p-6 border border-white/10">
+                    <h4 className="text-xl font-semibold text-indigo-400 mb-2">
+                      Free Tier
+                    </h4>
+                    <ul className="text-gray-300 space-y-2">
+                      <li>• 750 hours of hosting per month</li>
+                      <li>• Automatic HTTPS</li>
+                      <li>• Global CDN</li>
+                      <li>• Perfect for personal projects</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-black/30 rounded-xl p-6 border border-white/10">
+                    <h4 className="text-xl font-semibold text-indigo-400 mb-2">
+                      Individual Plan
+                    </h4>
+                    <ul className="text-gray-300 space-y-2">
+                      <li>• Starting at $7/month</li>
+                      <li>• Unlimited hosting hours</li>
+                      <li>• Custom domains</li>
+                      <li>• Ideal for business websites</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 text-gray-400 text-sm">
+              <p>
+                * Prices may vary based on Render's current pricing. Check their
+                website for the most up-to-date information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Hosting Solutions Section */}
+      <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+        <div className="max-w-7xl w-full mx-auto p-4 relative z-10">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
+            <h2 className="text-2xl font-bold text-white mb-8">
+              Custom Hosting Solutions
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              {/* Alternative Hosting */}
+              <div className="bg-black/30 rounded-xl p-6 border border-white/10">
+                <h3 className="text-xl font-semibold text-indigo-400 mb-4">
+                  Alternative Hosting Options
+                </h3>
+                <div className="space-y-4 text-gray-300">
+                  <p>
+                    While Render.com is our recommended option, we can
+                    accommodate other hosting providers based on your needs:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2">
+                    <li>AWS (Amazon Web Services)</li>
+                    <li>DigitalOcean</li>
+                    <li>Heroku</li>
+                    <li>Your existing hosting provider</li>
+                  </ul>
+                  <p className="text-sm text-gray-400 mt-4">
+                    * Pricing and setup may vary depending on the chosen hosting
+                    provider
+                  </p>
+                </div>
+              </div>
+
+              {/* Domain Registration */}
+              <div className="bg-black/30 rounded-xl p-6 border border-white/10">
+                <h3 className="text-xl font-semibold text-indigo-400 mb-4">
+                  Domain Registration with Namecheap
+                </h3>
+                <div className="space-y-4 text-gray-300">
+                  <p>We register domains through Namecheap.com for:</p>
+                  <ul className="list-disc list-inside space-y-2">
+                    <li>Competitive pricing (starting at $8-15/year)</li>
+                    <li>Free WhoisGuard protection</li>
+                    <li>Easy domain management</li>
+                    <li>Excellent customer support</li>
+                  </ul>
+                  <p className="text-sm text-gray-400 mt-4">
+                    * Domain prices vary based on the extension (.com, .net,
+                    etc.)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Client Specifications */}
+            <div className="bg-black/30 rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-semibold text-indigo-400 mb-4">
+                Client Specifications
+              </h3>
+              <div className="space-y-4 text-gray-300">
+                <p>
+                  We understand that every project is unique. We can
+                  accommodate:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <ul className="list-disc list-inside space-y-2">
+                    <li>Specific hosting requirements</li>
+                    <li>Custom domain preferences</li>
+                    <li>Special security needs</li>
+                    <li>Existing hosting migration</li>
+                  </ul>
+                  <ul className="list-disc list-inside space-y-2">
+                    <li>Bandwidth requirements</li>
+                    <li>Storage specifications</li>
+                    <li>Backup preferences</li>
+                    <li>Performance requirements</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-400 mt-4">
+                  Contact us to discuss your specific hosting and domain
+                  requirements. We'll work together to find the best solution
+                  for your project.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
