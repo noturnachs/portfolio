@@ -21,7 +21,9 @@ const SkillsSection = () => {
 
   return (
     <div
-      className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+      className={`bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer ${
+        isExpanded ? "h-[400px]" : "h-[80px]"
+      } overflow-hidden`}
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <div className="flex justify-between items-center">
@@ -49,8 +51,8 @@ const SkillsSection = () => {
 
       <div
         className={`transition-all duration-500 ease-in-out ${
-          isExpanded ? "max-h-[500px] opacity-100 mt-6" : "max-h-0 opacity-0"
-        } overflow-hidden`}
+          isExpanded ? "max-h-[320px] opacity-100 mt-6" : "max-h-0 opacity-0"
+        } overflow-auto custom-scrollbar`}
       >
         {/* Icons Grid */}
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 items-center justify-items-center mb-8">

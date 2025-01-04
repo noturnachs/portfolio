@@ -115,61 +115,67 @@ function App() {
               Bringing your vision to life with code and creativity.
             </p>
 
-            {/* Profile Section */}
-            <div className="!mt-24 grid lg:grid-cols-2 gap-12">
-              <div className="space-y-8">
-                <div className="relative aspect-square max-w-md mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-2xl -z-10 blur-xl" />
-                  <img
-                    src={selfImg}
-                    alt="Dan Lius Monsales"
-                    className="rounded-2xl shadow-2xl w-full h-full object-cover"
-                  />
+            {/* Profile Section - Restructured */}
+            <div className="!mt-24">
+              {/* Image and About side by side */}
+              <div className="flex flex-col lg:flex-row gap-12 mb-12">
+                {/* Image Section */}
+                <div className="lg:w-1/2">
+                  <div className="relative aspect-square max-w-md mx-auto">
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-2xl -z-10 blur-xl" />
+                    <img
+                      src={selfImg}
+                      alt="Dan Lius Monsales"
+                      className="rounded-2xl shadow-2xl w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-                <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl space-y-6 hover:bg-white/10 transition-all duration-300">
-                  {/* Greeting Section */}
-                  <div className="space-y-3">
-                    <h2 className="text-2xl font-bold text-white">
-                      Hey there! I'm{" "}
-                      <span className="text-indigo-400 hover:text-indigo-300 transition-colors">
-                        Dan
-                      </span>
-                    </h2>
-                    <p className="text-gray-300 leading-relaxed">
-                      A passionate web developer based in the{" "}
-                      <span className="text-indigo-400 hover:text-indigo-300 transition-colors">
-                        Philippines
-                      </span>
-                      , specializing in web development and design.
-                    </p>
-                  </div>
 
-                  {/* Why Choose Me Section */}
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-white">
-                      Why Choose Me?
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      I create modern, responsive websites designed to look
-                      great and provide an effortless user experience. By
-                      focusing on details and delivering results, I'm here to
-                      bring your ideas to life and help you stand out online.
-                    </p>
-                  </div>
+                {/* About Section */}
+                <div className="lg:w-1/2">
+                  <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl space-y-6 hover:bg-white/10 transition-all duration-300 h-full">
+                    <div className="space-y-3">
+                      <h2 className="text-2xl font-bold text-white">
+                        Hey there! I'm{" "}
+                        <span className="text-indigo-400 hover:text-indigo-300 transition-colors">
+                          Dan
+                        </span>
+                      </h2>
+                      <p className="text-gray-300 leading-relaxed">
+                        A passionate web developer based in the{" "}
+                        <span className="text-indigo-400 hover:text-indigo-300 transition-colors">
+                          Philippines
+                        </span>
+                        , specializing in web development and design.
+                      </p>
+                    </div>
 
-                  {/* Optional: Add a CTA button */}
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="mt-4 px-6 py-2 bg-indigo-600/80 text-white rounded-lg 
-                      hover:bg-indigo-600 transition-all duration-300 
-                      transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-600/20"
-                  >
-                    Let's Work Together
-                  </button>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold text-white">
+                        Why Choose Me?
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed">
+                        I create modern, responsive websites designed to look
+                        great and provide an effortless user experience. By
+                        focusing on details and delivering results, I'm here to
+                        bring your ideas to life and help you stand out online.
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="mt-4 px-6 py-2 bg-indigo-600/80 text-white rounded-lg 
+                        hover:bg-indigo-600 transition-all duration-300 
+                        transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-600/20"
+                    >
+                      Let's Work Together
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-6">
+              {/* Skills and other sections below */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <SkillsSection />
                 <ProjectsSection />
                 <ContactMeSection />

@@ -5,6 +5,7 @@ import { BiSupport } from "react-icons/bi";
 import { LiaMoneyBillAlt } from "react-icons/lia";
 import { GrStatusGood } from "react-icons/gr";
 import { projects } from "./components/projList";
+import Glossary from "./components/Glossary";
 
 const Sections = () => {
   const [currentProject, setCurrentProject] = useState(0);
@@ -20,8 +21,15 @@ const Sections = () => {
 
   return (
     <>
+      {/* Tech Terms Section */}
+      <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+        <div className="container mx-auto px-4">
+          <Glossary />
+        </div>
+      </section>
+
       {/* About Section */}
-      <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+      <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
         <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-between p-4 relative z-10">
           <div className="md:w-1/2 p-4 text-center md:text-left">
             <h2 className="text-3xl font-bold mb-4 text-white">ABOUT ME</h2>
@@ -100,7 +108,7 @@ const Sections = () => {
       </section>
 
       {/* Services Section */}
-      <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+      <section className="py-12 flex items-center justify-center relative bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
         <div className="max-w-7xl w-full mx-auto p-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
