@@ -22,15 +22,11 @@ const terms = [
     definition:
       "Makes your website look good on all devices - phones, tablets, and computers. Your site automatically adjusts to fit any screen size, so it's always easy to read and use.",
   },
-  {
-    term: "SEO",
-    definition:
-      "Helps people find your website when they search on Google. It's like making sure your business shows up in the phone book - but for the internet age!",
-  },
+
   {
     term: "SSL Certificate",
     definition:
-      "The padlock symbol you see in your browser that keeps your website secure. It protects your visitors' information (like passwords and credit cards) - think of it as a security guard for your website.",
+      "The padlock symbol you see in your browser that keeps your website secure. It protects your visitors' information (like passwords and credit cards) - think of it as a security guard for your website. An SSL certificate usually comes free with your domain registration.",
   },
   {
     term: "CMS",

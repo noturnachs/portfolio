@@ -174,43 +174,100 @@ function App() {
 
                 {/* About Section */}
                 <div className="lg:w-1/2">
-                  <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl space-y-6 hover:bg-white/10 transition-all duration-300 h-full">
-                    <div className="space-y-3">
-                      <h2 className="text-2xl font-bold text-white">
+                  <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl space-y-8 hover:bg-white/10 transition-all duration-300 h-full border border-white/5">
+                    {/* Introduction */}
+                    <div className="space-y-4">
+                      <h2 className="text-3xl font-bold text-white">
                         Hey there! I'm{" "}
-                        <span className="text-indigo-400 hover:text-indigo-300 transition-colors">
+                        <span className="text-indigo-400 hover:text-indigo-300 transition-colors relative group">
                           Dan
+                          <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                         </span>
                       </h2>
-                      <p className="text-gray-300 leading-relaxed">
+                      <p className="text-gray-300 leading-relaxed text-lg">
                         A passionate web developer based in the{" "}
-                        <span className="text-indigo-400 hover:text-indigo-300 transition-colors">
+                        <span className="text-indigo-400 hover:text-indigo-300 transition-colors font-medium">
                           Philippines
                         </span>
-                        , specializing in web development and design.
+                        , turning creative ideas into powerful digital
+                        solutions.
                       </p>
                     </div>
 
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-semibold text-white">
+                    {/* Why Choose Me Section */}
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-semibold text-white">
                         Why Choose Me?
                       </h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="bg-black/20 p-4 rounded-lg border border-white/5">
+                          <span className="text-indigo-400 font-medium">
+                            Modern Design
+                          </span>
+                          <p className="text-gray-300 text-sm mt-1">
+                            Clean, responsive websites that work on all devices
+                          </p>
+                        </div>
+                        <div className="bg-black/20 p-4 rounded-lg border border-white/5">
+                          <span className="text-indigo-400 font-medium">
+                            Fast Development
+                          </span>
+                          <p className="text-gray-300 text-sm mt-1">
+                            Quick turnaround without compromising quality
+                          </p>
+                        </div>
+                        <div className="bg-black/20 p-4 rounded-lg border border-white/5">
+                          <span className="text-indigo-400 font-medium">
+                            24/7 Support
+                          </span>
+                          <p className="text-gray-300 text-sm mt-1">
+                            Always available to help with your website needs
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Additional Info */}
+                    <div className="space-y-4">
                       <p className="text-gray-300 leading-relaxed">
-                        I create modern, responsive websites designed to look
-                        great and provide an effortless user experience. By
-                        focusing on details and delivering results, I'm here to
-                        bring your ideas to life and help you stand out online.
+                        With a focus on{" "}
+                        <span className="text-indigo-400 font-medium">
+                          user experience
+                        </span>{" "}
+                        and{" "}
+                        <span className="text-indigo-400 font-medium">
+                          performance
+                        </span>
+                        , I create websites that not only look great but also
+                        deliver results for your business.
                       </p>
                     </div>
 
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="mt-4 px-6 py-2 bg-indigo-600/80 text-white rounded-lg 
-                        hover:bg-indigo-600 transition-all duration-300 
-                        transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-600/20"
-                    >
-                      Let's Work Together
-                    </button>
+                    {/* CTA Button */}
+                    <div className="flex space-x-4">
+                      <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="px-6 py-3 bg-indigo-600 text-white rounded-lg 
+                          hover:bg-indigo-700 transition-all duration-300 
+                          transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-600/20
+                          flex items-center space-x-2 font-medium"
+                      >
+                        <span>Let's Work Together</span>
+                        <svg
+                          className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
