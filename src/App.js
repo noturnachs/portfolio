@@ -64,6 +64,58 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const sendVisitNotification = async () => {
+      const botToken = process.env.REACT_APP_BOT_TOKEN;
+      const visitChannelId = process.env.REACT_APP_VISIT_CHANNEL_ID;
+
+      try {
+        const userAgent = window.navigator.userAgent;
+        const screenSize = `${window.screen.width}x${window.screen.height}`;
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        // Create detailed date and time information
+        const now = new Date();
+        const dateOptions = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        const timeOptions = {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        };
+
+        const formattedDate = now.toLocaleDateString("en-US", dateOptions);
+        const formattedTime = now.toLocaleTimeString("en-US", timeOptions);
+
+        const message = `New Website Visit
+
+Date: ${formattedDate}
+Time: ${formattedTime}
+Timezone: ${timeZone}
+Device Info: ${userAgent}
+Screen Size: ${screenSize}`;
+
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: visitChannelId,
+            text: message,
+          }),
+        });
+      } catch (error) {
+        console.error("Failed to send visit notification:", error);
+      }
+    };
+
+    sendVisitNotification();
+  }, []);
+
   return (
     <div className="bg-[#121212] min-h-screen">
       {/* Navbar */}
