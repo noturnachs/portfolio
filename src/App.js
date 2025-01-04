@@ -69,12 +69,19 @@ function App() {
       const botToken = process.env.REACT_APP_BOT_TOKEN;
       const visitChannelId = process.env.REACT_APP_VISIT_CHANNEL_ID;
 
+      // Check if we've already sent a notification today
+      const today = new Date().toDateString();
+      const lastVisit = localStorage.getItem("lastVisit");
+
+      if (lastVisit === today) {
+        return; // Skip if already visited today
+      }
+
       try {
         const userAgent = window.navigator.userAgent;
         const screenSize = `${window.screen.width}x${window.screen.height}`;
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-        // Create detailed date and time information
         const now = new Date();
         const dateOptions = {
           weekday: "long",
@@ -92,13 +99,13 @@ function App() {
         const formattedDate = now.toLocaleDateString("en-US", dateOptions);
         const formattedTime = now.toLocaleTimeString("en-US", timeOptions);
 
-        const message = `New Website Visit
+        const message = `🌐 New Website Visit
 
-Date: ${formattedDate}
-Time: ${formattedTime}
-Timezone: ${timeZone}
-Device Info: ${userAgent}
-Screen Size: ${screenSize}`;
+📅 Date: ${formattedDate}
+⏰ Time: ${formattedTime}
+🌍 Timezone: ${timeZone}
+📱 Device Info: ${userAgent}
+🖥️ Screen Size: ${screenSize}`;
 
         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
           method: "POST",
@@ -108,6 +115,9 @@ Screen Size: ${screenSize}`;
             text: message,
           }),
         });
+
+        // Save today's date in localStorage
+        localStorage.setItem("lastVisit", today);
       } catch (error) {
         console.error("Failed to send visit notification:", error);
       }
