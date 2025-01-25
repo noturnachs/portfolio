@@ -69,43 +69,91 @@ function App() {
       const botToken = process.env.REACT_APP_BOT_TOKEN;
       const visitChannelId = process.env.REACT_APP_VISIT_CHANNEL_ID;
 
-      // Check if we've already sent a notification today
-      const today = new Date().toDateString();
-      const lastVisit = localStorage.getItem("lastVisit");
-
-      if (lastVisit === today) {
-        return; // Skip if already visited today
+      // Check if we've already sent a notification in the last hour
+      const lastVisitTime = localStorage.getItem("lastVisitTime");
+      const now = new Date();
+      if (lastVisitTime && now - new Date(lastVisitTime) < 3600000) {
+        // 1 hour
+        return;
       }
 
       try {
+        // Basic device/browser info
         const userAgent = window.navigator.userAgent;
         const screenSize = `${window.screen.width}x${window.screen.height}`;
+        const colorDepth = window.screen.colorDepth;
+        const pixelRatio = window.devicePixelRatio;
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const language = window.navigator.language;
+        const platform = window.navigator.platform;
+        const vendor = window.navigator.vendor;
+        const memory = navigator?.deviceMemory || "Not available";
+        const cores = navigator?.hardwareConcurrency || "Not available";
+        const connection =
+          navigator?.connection?.effectiveType || "Not available";
 
-        const now = new Date();
-        const dateOptions = {
+        // Get referrer information
+        const referrer = document.referrer || "Direct visit";
+        const entryPage = window.location.pathname;
+
+        // Performance metrics
+        const performance = window.performance;
+        const loadTime =
+          performance?.timing?.domContentLoadedEventEnd -
+          performance?.timing?.navigationStart;
+
+        // Browser capabilities
+        const webGL = (() => {
+          try {
+            const canvas = document.createElement("canvas");
+            return (
+              !!window.WebGLRenderingContext &&
+              (canvas.getContext("webgl") ||
+                canvas.getContext("experimental-webgl"))
+            );
+          } catch (e) {
+            return false;
+          }
+        })()
+          ? "Supported"
+          : "Not supported";
+
+        const message = `🌐 New Website Visit
+
+📅 Date: ${now.toLocaleDateString("en-US", {
           weekday: "long",
           year: "numeric",
           month: "long",
           day: "numeric",
-        };
-        const timeOptions = {
+        })}
+⏰ Time: ${now.toLocaleTimeString("en-US", {
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
           hour12: true,
-        };
+        })}
 
-        const formattedDate = now.toLocaleDateString("en-US", dateOptions);
-        const formattedTime = now.toLocaleTimeString("en-US", timeOptions);
+📱 Device Information:
+• Platform: ${platform}
+• Screen: ${screenSize} (${pixelRatio}x ratio)
+• Color Depth: ${colorDepth}-bit
+• Memory: ${memory}GB
+• CPU Cores: ${cores}
+• Connection: ${connection}
 
-        const message = `🌐 New Website Visit
+🌍 User Environment:
+• Browser: ${vendor}
+• Language: ${language}
+• Timezone: ${timeZone}
+• WebGL: ${webGL}
 
-📅 Date: ${formattedDate}
-⏰ Time: ${formattedTime}
-🌍 Timezone: ${timeZone}
-📱 Device Info: ${userAgent}
-🖥️ Screen Size: ${screenSize}`;
+🔍 Visit Details:
+• Referrer: ${referrer}
+• Entry Page: ${entryPage}
+• Page Load Time: ${loadTime}ms
+
+📊 Technical Details:
+${userAgent}`;
 
         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
           method: "POST",
@@ -116,8 +164,8 @@ function App() {
           }),
         });
 
-        // Save today's date in localStorage
-        localStorage.setItem("lastVisit", today);
+        // Save visit time
+        localStorage.setItem("lastVisitTime", now.toString());
       } catch (error) {
         console.error("Failed to send visit notification:", error);
       }
