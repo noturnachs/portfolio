@@ -13,8 +13,9 @@ const ContactMeSection = () => {
   const contactInfo = [
     {
       icon: FaEnvelope,
-      label: "monsalesdanlius.stem1@gmail.com",
+      label: "Email",
       href: "mailto:monsalesdanlius.stem1@gmail.com",
+      description: "Get in touch via email",
     },
     {
       icon: FaPhoneAlt,
@@ -73,18 +74,27 @@ const ContactMeSection = () => {
           isExpanded ? "max-h-[320px] opacity-100 mt-6" : "max-h-0 opacity-0"
         } overflow-auto custom-scrollbar`}
       >
-        {contactInfo.map((info, index) => (
-          <a
-            key={index}
-            href={info.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-3 text-gray-300 hover:text-indigo-400 transition-colors group mb-4"
-          >
-            <info.icon className="w-5 h-5" />
-            <span className="font-medium">{info.label}</span>
-          </a>
-        ))}
+        <div className="grid gap-4">
+          {contactInfo.map((info, index) => (
+            <a
+              key={index}
+              href={info.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-black/20 p-4 rounded-xl hover:bg-black/40 transition-all duration-300"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-indigo-500/10 rounded-lg group-hover:bg-indigo-500/20 transition-colors">
+                  <info.icon className="w-6 h-6 text-indigo-400" />
+                </div>
+                <div>
+                  <h3 className="text-white font-medium">{info.label}</h3>
+                  <p className="text-sm text-gray-400">{info.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

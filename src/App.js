@@ -384,10 +384,20 @@ ${userAgent}`;
 
               {/* Skills and other sections below */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <SkillsSection />
-                <ProjectsSection />
-                <ContactMeSection />
-                <SocialsSection />
+                {[
+                  SkillsSection,
+                  ProjectsSection,
+                  ContactMeSection,
+                  SocialsSection,
+                ].map((Section, index) => (
+                  <div
+                    key={index}
+                    className="animate-fade-in-up"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <Section />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

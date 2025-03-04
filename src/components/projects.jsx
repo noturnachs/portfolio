@@ -69,13 +69,53 @@ const projects = [
   // Add more projects as needed
 ];
 
+const ProjectCard = ({ project }) => (
+  <div
+    onClick={(e) => {
+      e.stopPropagation();
+      window.open(project.link, "_blank");
+    }}
+    className="group relative bg-black/20 rounded-xl overflow-hidden hover:bg-black/40 transition-all duration-300"
+  >
+    <div className="relative aspect-video overflow-hidden">
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </div>
+
+    <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <h3 className="text-lg font-semibold text-white mb-1">{project.title}</h3>
+      <p className="text-sm text-gray-300">{project.description}</p>
+      <div className="mt-2 flex items-center text-indigo-400 text-sm">
+        <span>View Project</span>
+        <svg
+          className="w-4 h-4 ml-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+);
+
 const ProjectsSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div
       className={`bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer ${
-        isExpanded ? "h-[410px]" : "h-[80px]"
+        isExpanded ? "h-[600px]" : "h-[80px]"
       } overflow-hidden`}
       onClick={() => setIsExpanded(!isExpanded)}
     >
@@ -104,37 +144,12 @@ const ProjectsSection = () => {
 
       <div
         className={`transition-all duration-500 ease-in-out ${
-          isExpanded ? "max-h-[320px] opacity-100 mt-6" : "max-h-0 opacity-0"
+          isExpanded ? "max-h-[520px] opacity-100 mt-6" : "max-h-0 opacity-0"
         } overflow-auto custom-scrollbar`}
       >
-        <div className="grid gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(project.link, "_blank");
-              }}
-              className="group relative bg-black/20 rounded-xl overflow-hidden hover:bg-black/40 transition-all duration-300"
-            >
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-white">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-400 mt-1">
-                  {project.description}
-                </p>
-              </div>
-
-              <div className="relative aspect-video overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            </div>
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
       </div>
