@@ -53,7 +53,7 @@ const projects = [
   },
   {
     title: "MoneyUp",
-    description: "Personal finance management tool",
+    description: "Personal finance management tool [Archived]",
     link: "https://moneyup.me/",
     image: moneyup,
     technologies: ["React", "Node.js", "MongoDB"],
@@ -62,7 +62,7 @@ const projects = [
   },
   {
     title: "LeeyosChat",
-    description: "Chat with strangers all over the world.",
+    description: "Chat with strangers all over the world. [Archived]",
     link: "https://leeyos.com/",
     image: lImage,
     technologies: ["React", "Socket.io", "Express"],
@@ -71,7 +71,7 @@ const projects = [
   },
   {
     title: "BookIt",
-    description: "Dormitory booking system for USC students.",
+    description: "Dormitory booking system for USC students. [Archived]",
     link: "https://dorm-bookingfinal.onrender.com/",
     image: dorm,
     technologies: ["React", "Node.js", "MongoDB"],
@@ -305,21 +305,11 @@ const ProjectsSection = () => {
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
                 Archive
               </h3>
-              <div className="flex items-center justify-center gap-2 text-yellow-300/80 px-4">
-                <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <p className="text-base sm:text-lg">
+              <div
+                className="flex flex-col sm:flex-row items-center justify-center gap-2 
+                            text-yellow-300/80 px-4 max-w-sm sm:max-w-lg mx-auto"
+              >
+                <p className="text-sm sm:text-base text-center">
                   Projects archived due to hosting costs - Available for
                   demonstration
                 </p>
