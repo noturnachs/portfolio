@@ -552,10 +552,10 @@ ${userAgent}`;
                     />
                   </svg>
                   <a
-                    href="mailto:monsalesdanlius.stem1@gmail.com"
+                    href="mailto:dan@danlius.com"
                     className="text-gray-400 hover:text-indigo-400 transition-colors text-sm"
                   >
-                    monsalesdanlius.stem1@gmail.com
+                    dan@danlius.com
                   </a>
                 </li>
                 <li className="flex items-center space-x-2">

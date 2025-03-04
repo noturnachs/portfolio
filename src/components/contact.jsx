@@ -14,7 +14,7 @@ const ContactMeSection = () => {
     {
       icon: FaEnvelope,
       label: "Email",
-      href: "mailto:monsalesdanlius.stem1@gmail.com",
+      href: "mailto:dan@danlius.com",
       description: "Get in touch via email",
     },
     {
