@@ -308,10 +308,11 @@ ${userAgent}`;
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Profile Section with responsive spacing */}
+          {/* Main content after hero section */}
           <div className="mt-12 sm:mt-24">
-            <div className="flex flex-col lg:flex-row gap-6 sm:gap-12 mb-6 sm:mb-12">
-              {/* Image Section with responsive sizing */}
+            {/* Profile/About Me Section First */}
+            <div className="flex flex-col lg:flex-row gap-6 sm:gap-12 mb-16">
+              {/* Image Section */}
               <motion.div
                 className="lg:w-1/2"
                 whileHover={{ scale: 1.02 }}
@@ -327,7 +328,7 @@ ${userAgent}`;
                 </div>
               </motion.div>
 
-              {/* About Section with responsive text and spacing */}
+              {/* About Section */}
               <motion.div
                 className="lg:w-1/2"
                 initial={{ opacity: 0, x: 20 }}
@@ -421,13 +422,15 @@ ${userAgent}`;
               </motion.div>
             </div>
 
-            {/* Grid Sections with responsive gap */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {/* Projects Section - Now directly after About Me */}
+            <div id="projects" className="mb-16">
+              <ProjectsSection />
+            </div>
+
+            {/* Other Sections */}
+            <div className="space-y-8">
               <div id="skills" className="animate-fade-in-up">
                 <SkillsSection />
-              </div>
-              <div id="projects" className="animate-fade-in-up">
-                <ProjectsSection />
               </div>
               <div id="contact" className="animate-fade-in-up">
                 <ContactMeSection />
