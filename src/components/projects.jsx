@@ -6,6 +6,8 @@ import htt from "../images/ht.png";
 import tsp from "../images/tsp.png";
 import dorm from "../images/dorm.png";
 import moneyup from "../images/moneyup.png";
+import alphasys from "../images/alphasys.png";
+import serenity from "../images/serenity.png";
 
 const projects = [
   {
@@ -50,6 +52,18 @@ const projects = [
     description: "Client's website",
     link: "https://tornadosoundperfection.com/",
     image: tsp,
+  },
+  {
+    title: "AlphaSys",
+    description: "Comprehensive IT Solutions and Services",
+    link: "https://alphasys.share.zrok.io/",
+    image: alphasys,
+  },
+  {
+    title: "Serenity",
+    description: "Wellness and Relaxation Platform",
+    link: "https://serenity.share.zrok.io/",
+    image: serenity,
   },
 
   // Add more projects as needed
