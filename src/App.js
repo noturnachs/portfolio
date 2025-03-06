@@ -267,7 +267,7 @@ ${userAgent}`;
             transition={{ duration: 0.6 }}
           >
             <motion.p
-              className="text-base sm:text-lg font-semibold tracking-wider text-indigo-400"
+              className="text-base sm:text-lg font-semibold tracking-wider text-indigo-400 mt-10"
               whileHover={{ scale: 1.05 }}
             >
               WEB DEVELOPER
